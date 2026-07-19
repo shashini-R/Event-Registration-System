@@ -19,9 +19,6 @@ if (!fs.existsSync(filePath)) {
 }
 
 // Home Route
-app.get("/", (req, res) => {
-    res.send("Event Registration Backend Running");
-});
 
 // Register for an Event
 app.post("/", (req, res) => {
@@ -47,7 +44,7 @@ app.post("/", (req, res) => {
 });
 
 // View All Registrations
-app.get("/registrations", (req, res) => {
+app.get("/", (req, res) => {
 
     const registrations = JSON.parse(
         fs.readFileSync(filePath, "utf8")
