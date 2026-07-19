@@ -24,7 +24,7 @@ app.get("/", (req, res) => {
 });
 
 // Register for an Event
-app.post("/register", (req, res) => {
+app.post("/", (req, res) => {
 
     const newRegistration = req.body;
 

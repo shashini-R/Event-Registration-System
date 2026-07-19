@@ -1,6 +1,6 @@
 const form = document.getElementById("registrationForm");
 
-form.addEventListener("submit", async function (e) {
+form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
     const registration = {
@@ -11,7 +11,7 @@ form.addEventListener("submit", async function (e) {
     };
 
     try {
-        const response = await fetch("https://event-registration-system-1-wfmw.onrender.com", {
+        const response = await fetch("https://event-registration-system-1-tbuv.onrender.com", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -21,12 +21,15 @@ form.addEventListener("submit", async function (e) {
 
         const result = await response.json();
 
-        alert(result.message);
-
-        form.reset();
+        if (response.ok) {
+            alert(result.message);
+            form.reset();
+        } else {
+            alert(result.message || "Registration failed.");
+        }
 
     } catch (error) {
-        alert("Unable to connect to the server.");
         console.error(error);
+        alert("Unable to connect to the server.");
     }
 });
