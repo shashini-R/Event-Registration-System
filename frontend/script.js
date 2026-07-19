@@ -11,7 +11,7 @@ form.addEventListener("submit", async function (e) {
     };
 
     try {
-        const response = await fetch("https://event-registration-system-tbuv.onrender.com/register", {
+        const response = await fetch("https://event-registration-system-1-wfmw.onrender.com", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
