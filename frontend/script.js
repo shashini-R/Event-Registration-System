@@ -1,0 +1,32 @@
+const form = document.getElementById("registrationForm");
+
+form.addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const registration = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        phone: document.getElementById("phone").value,
+        event: document.getElementById("event").value
+    };
+
+    try {
+        const response = await fetch("http://localhost:5000", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(registration)
+        });
+
+        const result = await response.json();
+
+        alert(result.message);
+
+        form.reset();
+
+    } catch (error) {
+        alert("Unable to connect to the server.");
+        console.error(error);
+    }
+});
